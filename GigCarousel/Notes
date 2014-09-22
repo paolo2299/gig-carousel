@@ -1,0 +1,3 @@
+Compiler complains about types automatically placed in overides in UITableViewController?
+Should IBOutlets be strong or weak? They are weak in the storyboard tutorial but strong in the swift with iOS book.
+Should delegates be weak? part 3 swift tutorial doesn't do that...'

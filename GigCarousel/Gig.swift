@@ -1,0 +1,35 @@
+//
+//  Gig.swift
+//  GigCarousel
+//
+//  Created by Paul Lawson on 20/09/2014.
+//  Copyright (c) 2014 Paul Lawson. All rights reserved.
+//
+
+import Foundation
+import CoreData
+
+class Gig: NSManagedObject {
+  
+  @NSManaged var dataSource: String?
+  @NSManaged var date: NSDate
+  @NSManaged var nativeId: NSNumber?
+  @NSManaged var venue: String?
+  @NSManaged var performances: NSSet
+  
+  func year() -> Int {
+    return dateComponents().year
+  }
+  
+  func month() -> Int {
+    return dateComponents().month
+  }
+  
+  func dateComponents() -> NSDateComponents {
+    let calendar = NSCalendar.currentCalendar()
+    let units = NSCalendarUnit.CalendarUnitYear |
+                NSCalendarUnit.CalendarUnitMonth |
+                NSCalendarUnit.CalendarUnitDay
+    return calendar.components(units, fromDate: date)
+  }
+}
