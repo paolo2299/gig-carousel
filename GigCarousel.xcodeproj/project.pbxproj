@@ -15,7 +15,6 @@
 		D03ED20B19C42A960057B927 /* GigCarouselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED20A19C42A960057B927 /* GigCarouselTests.swift */; };
 		D03ED21519C42B4A0057B927 /* GigTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */; };
 		D03ED21919C57E390057B927 /* GigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED21819C57E390057B927 /* GigCell.swift */; };
-		D03ED21C19C580070057B927 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = D03ED21A19C580070057B927 /* Notes */; };
 		D03ED21D19C580070057B927 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED21B19C580070057B927 /* TemplateIcon2x.png */; };
 		D03ED23719C58A5C0057B927 /* 1Star.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED21F19C58A5C0057B927 /* 1Star.png */; };
 		D03ED23819C58A5C0057B927 /* 1Star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22019C58A5C0057B927 /* 1Star@2x.png */; };
@@ -71,7 +70,6 @@
 		D03ED20A19C42A960057B927 /* GigCarouselTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigCarouselTests.swift; sourceTree = "<group>"; };
 		D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigTimelineViewController.swift; sourceTree = "<group>"; };
 		D03ED21819C57E390057B927 /* GigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCell.swift; sourceTree = "<group>"; };
-		D03ED21A19C580070057B927 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		D03ED21B19C580070057B927 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		D03ED21F19C58A5C0057B927 /* 1Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Star.png; sourceTree = "<group>"; };
 		D03ED22019C58A5C0057B927 /* 1Star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Star@2x.png"; sourceTree = "<group>"; };
@@ -122,6 +120,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00C2F1419D21A13009C7218 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0D9674F19CD9EE2004E48AA /* Gig.swift */,
+				D0D9675119CD9F2B004E48AA /* Artist.swift */,
+				D0D9675319CD9F2B004E48AA /* Performance.swift */,
+				D0BD908319CB53FC0051E1AA /* GigTimeline.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D00C2F1519D21A4E009C7218 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D03ED25119C8D8700057B927 /* AddEditGigViewController.swift */,
+				D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D00C2F1619D21A86009C7218 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D03ED21819C57E390057B927 /* GigCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D03ED1E319C42A960057B927 = {
 			isa = PBXGroup;
 			children = (
@@ -143,21 +169,16 @@
 		D03ED1EE19C42A960057B927 /* GigCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				D00C2F1619D21A86009C7218 /* Views */,
+				D00C2F1519D21A4E009C7218 /* Controllers */,
+				D00C2F1419D21A13009C7218 /* Models */,
 				D03ED1F119C42A960057B927 /* AppDelegate.swift */,
 				D03ED1F819C42A960057B927 /* Main.storyboard */,
-				D03ED25119C8D8700057B927 /* AddEditGigViewController.swift */,
-				D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */,
-				D0BD908319CB53FC0051E1AA /* GigTimeline.swift */,
-				D03ED21819C57E390057B927 /* GigCell.swift */,
-				D03ED21A19C580070057B927 /* Notes */,
 				D03ED21B19C580070057B927 /* TemplateIcon2x.png */,
 				D03ED1FB19C42A960057B927 /* Images.xcassets */,
 				D03ED21E19C58A5C0057B927 /* Images */,
 				D03ED1FD19C42A960057B927 /* LaunchScreen.xib */,
 				D03ED1F319C42A960057B927 /* GigCarousel.xcdatamodeld */,
-				D0D9675319CD9F2B004E48AA /* Performance.swift */,
-				D0D9675119CD9F2B004E48AA /* Artist.swift */,
-				D0D9674F19CD9EE2004E48AA /* Gig.swift */,
 				D03ED1EF19C42A960057B927 /* Supporting Files */,
 			);
 			path = GigCarousel;
@@ -314,7 +335,6 @@
 				D03ED24719C58A5C0057B927 /* 5Stars.png in Resources */,
 				D03ED1FF19C42A960057B927 /* LaunchScreen.xib in Resources */,
 				D03ED24019C58A5C0057B927 /* 3Stars@2x.png in Resources */,
-				D03ED21C19C580070057B927 /* Notes in Resources */,
 				D03ED23A19C58A5C0057B927 /* 1StarSmall@2x.png in Resources */,
 				D03ED24A19C58A5C0057B927 /* 5StarsSmall@2x.png in Resources */,
 				D03ED24819C58A5C0057B927 /* 5Stars@2x.png in Resources */,

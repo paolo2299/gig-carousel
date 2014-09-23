@@ -16,30 +16,23 @@ class GigTimeline {
     sort(&self.gigs, { $0.date.compare($1.date) == NSComparisonResult.OrderedDescending })
   }
   
-  func gigsGroupedByYearAndMonth() -> [[[Gig]]] {
+  func gigsGroupedByMonth() -> [[Gig]] {
     if gigs.count == 0 {
-      return [[[]]]
+      return [[]]
     }
-    var result = [[[Gig]]]()
+    var result = [[Gig]]()
     var currentGig = gigs.first!
-    var currentYearArray = [[Gig]]()
     var currentMonthArray = [Gig]()
     for gig in gigs {
       if (gig.month() == currentGig.month()) && (gig.year() == currentGig.year()) {
         currentMonthArray.append(gig)
-      } else if (gig.year() == currentGig.year()) {
-        currentYearArray.append(currentMonthArray)
-        currentMonthArray = [gig]
       } else {
-        currentYearArray.append(currentMonthArray)
-        result.append(currentYearArray)
+        result.append(currentMonthArray)
         currentMonthArray = [gig]
-        currentYearArray = []
       }
       currentGig = gig
     }
-    currentYearArray.append(currentMonthArray)
-    result.append(currentYearArray)
+    result.append(currentMonthArray)
     
     return result
   }

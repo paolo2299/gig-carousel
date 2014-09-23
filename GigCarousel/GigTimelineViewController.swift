@@ -75,22 +75,31 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
   // MARK: - Table view data source
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    return gigTimeline.gigsGroupedByMonth().count
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return gigTimeline.gigs.count
+    return gigTimeline.gigsGroupedByMonth()[section].count
+  }
+  
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    let gigsInSection = gigTimeline.gigsGroupedByMonth()[section]
+    let sampleGig = gigsInSection.first!
+    let dateToDisplay = sampleGig.date
+    let dateFormatter = NSDateFormatter()
+    let formatString = NSDateFormatter.dateFormatFromTemplate("MMMMYYYY", options: 0, locale: NSLocale.currentLocale())
+    dateFormatter.dateFormat = formatString
+    return dateFormatter.stringFromDate(sampleGig.date)
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("GigCell", forIndexPath: indexPath) as GigCell
     
-    let gig = gigTimeline.gigs[indexPath.row];
+    let gig = gigTimeline.gigsGroupedByMonth()[indexPath.section][indexPath.row];
     let optionalPerformance = gig.performances.allObjects.first? as Performance?
     if let performance = optionalPerformance? {
       cell.artistNameLabel.text = performance.artist.name;
     }
-    println("venue: \(gig.venue)")
     cell.venueNameLabel.text = gig.venue;
     
     return cell
