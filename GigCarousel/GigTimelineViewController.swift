@@ -59,6 +59,11 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
       let addEditGigViewController = navigationController.viewControllers[0] as AddEditGigViewController
       addEditGigViewController.delegate = self
     } else if (segue.identifier == "GigMedia") {
+      let gigCell = sender as GigCell
+      let navigationController = segue.destinationViewController as UINavigationController
+      let gigMediaViewController = navigationController.viewControllers[0] as GigMediaViewController
+      gigMediaViewController.gig = gigCell.gig
+      gigMediaViewController.media = gigCell.gig.getMedia()
     }
   }
   
@@ -101,6 +106,7 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
       cell.artistNameLabel.text = performance.artist.name;
     }
     cell.venueNameLabel.text = gig.venue;
+    cell.gig = gig
     
     return cell
   }

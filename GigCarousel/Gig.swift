@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class Gig: NSManagedObject {
   
@@ -31,5 +32,14 @@ class Gig: NSManagedObject {
                 NSCalendarUnit.CalendarUnitMonth |
                 NSCalendarUnit.CalendarUnitDay
     return calendar.components(units, fromDate: date)
+  }
+  
+  func getMedia() -> [UIImage] {
+    return [
+      UIImage(named: "Coldplay1.jpg"),
+      UIImage(named: "Coldplay2.jpg"),
+      UIImage(named: "Coldplay3.jpg"),
+      UIImage(named: "Coldplay4.jpg")
+    ]
   }
 }

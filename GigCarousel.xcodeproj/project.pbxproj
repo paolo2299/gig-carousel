@@ -7,39 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00C2F1919D21E53009C7218 /* SongkickCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F1819D21E53009C7218 /* SongkickCommunicator.swift */; };
+		D00C2F1B19D21E68009C7218 /* SongkickCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F1A19D21E68009C7218 /* SongkickCoordinator.swift */; };
+		D00C2F1D19D21E95009C7218 /* SongkickIngestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F1C19D21E95009C7218 /* SongkickIngestor.swift */; };
+		D00C2F2719D2A2E4009C7218 /* Coldplay1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F1E19D2A2E4009C7218 /* Coldplay1.jpg */; };
+		D00C2F2819D2A2E4009C7218 /* Coldplay2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F1F19D2A2E4009C7218 /* Coldplay2.jpg */; };
+		D00C2F2919D2A2E4009C7218 /* Coldplay3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2019D2A2E4009C7218 /* Coldplay3.jpg */; };
+		D00C2F2A19D2A2E4009C7218 /* Coldplay4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2119D2A2E4009C7218 /* Coldplay4.jpg */; };
+		D00C2F2B19D2A2E4009C7218 /* Coldplay5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2219D2A2E4009C7218 /* Coldplay5.jpg */; };
+		D00C2F2C19D2A2E4009C7218 /* Coldplay6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2319D2A2E4009C7218 /* Coldplay6.jpg */; };
+		D00C2F2D19D2A2E4009C7218 /* Coldplay7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2419D2A2E4009C7218 /* Coldplay7.jpg */; };
+		D00C2F2E19D2A2E4009C7218 /* Coldplay8.png in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2519D2A2E4009C7218 /* Coldplay8.png */; };
+		D00C2F2F19D2A2E4009C7218 /* Coldplay9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D00C2F2619D2A2E4009C7218 /* Coldplay9.jpg */; };
+		D00C2F3119D2A643009C7218 /* GigMediaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F3019D2A643009C7218 /* GigMediaCollectionViewController.swift */; };
+		D00C2F3319D405DB009C7218 /* GigMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F3219D405DB009C7218 /* GigMediaCell.swift */; };
+		D00C2F3719D5523C009C7218 /* GigImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C2F3619D5523C009C7218 /* GigImageViewController.swift */; };
 		D03ED1F219C42A960057B927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED1F119C42A960057B927 /* AppDelegate.swift */; };
 		D03ED1F519C42A960057B927 /* GigCarousel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D03ED1F319C42A960057B927 /* GigCarousel.xcdatamodeld */; };
 		D03ED1FA19C42A960057B927 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03ED1F819C42A960057B927 /* Main.storyboard */; };
 		D03ED1FC19C42A960057B927 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03ED1FB19C42A960057B927 /* Images.xcassets */; };
-		D03ED1FF19C42A960057B927 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03ED1FD19C42A960057B927 /* LaunchScreen.xib */; };
 		D03ED20B19C42A960057B927 /* GigCarouselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED20A19C42A960057B927 /* GigCarouselTests.swift */; };
 		D03ED21519C42B4A0057B927 /* GigTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */; };
 		D03ED21919C57E390057B927 /* GigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED21819C57E390057B927 /* GigCell.swift */; };
 		D03ED21D19C580070057B927 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED21B19C580070057B927 /* TemplateIcon2x.png */; };
-		D03ED23719C58A5C0057B927 /* 1Star.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED21F19C58A5C0057B927 /* 1Star.png */; };
-		D03ED23819C58A5C0057B927 /* 1Star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22019C58A5C0057B927 /* 1Star@2x.png */; };
-		D03ED23919C58A5C0057B927 /* 1StarSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22119C58A5C0057B927 /* 1StarSmall.png */; };
-		D03ED23A19C58A5C0057B927 /* 1StarSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22219C58A5C0057B927 /* 1StarSmall@2x.png */; };
-		D03ED23B19C58A5C0057B927 /* 2Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22319C58A5C0057B927 /* 2Stars.png */; };
-		D03ED23C19C58A5C0057B927 /* 2Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22419C58A5C0057B927 /* 2Stars@2x.png */; };
-		D03ED23D19C58A5C0057B927 /* 2StarsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22519C58A5C0057B927 /* 2StarsSmall.png */; };
-		D03ED23E19C58A5C0057B927 /* 2StarsSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22619C58A5C0057B927 /* 2StarsSmall@2x.png */; };
-		D03ED23F19C58A5C0057B927 /* 3Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22719C58A5C0057B927 /* 3Stars.png */; };
-		D03ED24019C58A5C0057B927 /* 3Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22819C58A5C0057B927 /* 3Stars@2x.png */; };
-		D03ED24119C58A5C0057B927 /* 3StarsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22919C58A5C0057B927 /* 3StarsSmall.png */; };
-		D03ED24219C58A5C0057B927 /* 3StarsSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22A19C58A5C0057B927 /* 3StarsSmall@2x.png */; };
-		D03ED24319C58A5C0057B927 /* 4Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22B19C58A5C0057B927 /* 4Stars.png */; };
-		D03ED24419C58A5C0057B927 /* 4Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22C19C58A5C0057B927 /* 4Stars@2x.png */; };
-		D03ED24519C58A5C0057B927 /* 4StarsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22D19C58A5C0057B927 /* 4StarsSmall.png */; };
-		D03ED24619C58A5C0057B927 /* 4StarsSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22E19C58A5C0057B927 /* 4StarsSmall@2x.png */; };
-		D03ED24719C58A5C0057B927 /* 5Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED22F19C58A5C0057B927 /* 5Stars.png */; };
-		D03ED24819C58A5C0057B927 /* 5Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23019C58A5C0057B927 /* 5Stars@2x.png */; };
-		D03ED24919C58A5C0057B927 /* 5StarsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23119C58A5C0057B927 /* 5StarsSmall.png */; };
-		D03ED24A19C58A5C0057B927 /* 5StarsSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23219C58A5C0057B927 /* 5StarsSmall@2x.png */; };
-		D03ED24B19C58A5C0057B927 /* Gestures.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23319C58A5C0057B927 /* Gestures.png */; };
-		D03ED24C19C58A5C0057B927 /* Gestures@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23419C58A5C0057B927 /* Gestures@2x.png */; };
-		D03ED24D19C58A5C0057B927 /* Players.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23519C58A5C0057B927 /* Players.png */; };
-		D03ED24E19C58A5C0057B927 /* Players@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03ED23619C58A5C0057B927 /* Players@2x.png */; };
 		D03ED25219C8D8700057B927 /* AddEditGigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03ED25119C8D8700057B927 /* AddEditGigViewController.swift */; };
 		D0BD908419CB53FC0051E1AA /* GigTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BD908319CB53FC0051E1AA /* GigTimeline.swift */; };
 		D0D9675019CD9EE2004E48AA /* Gig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D9674F19CD9EE2004E48AA /* Gig.swift */; };
@@ -58,43 +48,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D00C2F1819D21E53009C7218 /* SongkickCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongkickCommunicator.swift; sourceTree = "<group>"; };
+		D00C2F1A19D21E68009C7218 /* SongkickCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongkickCoordinator.swift; sourceTree = "<group>"; };
+		D00C2F1C19D21E95009C7218 /* SongkickIngestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongkickIngestor.swift; sourceTree = "<group>"; };
+		D00C2F1E19D2A2E4009C7218 /* Coldplay1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay1.jpg; sourceTree = "<group>"; };
+		D00C2F1F19D2A2E4009C7218 /* Coldplay2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay2.jpg; sourceTree = "<group>"; };
+		D00C2F2019D2A2E4009C7218 /* Coldplay3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay3.jpg; sourceTree = "<group>"; };
+		D00C2F2119D2A2E4009C7218 /* Coldplay4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay4.jpg; sourceTree = "<group>"; };
+		D00C2F2219D2A2E4009C7218 /* Coldplay5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay5.jpg; sourceTree = "<group>"; };
+		D00C2F2319D2A2E4009C7218 /* Coldplay6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay6.jpg; sourceTree = "<group>"; };
+		D00C2F2419D2A2E4009C7218 /* Coldplay7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay7.jpg; sourceTree = "<group>"; };
+		D00C2F2519D2A2E4009C7218 /* Coldplay8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coldplay8.png; sourceTree = "<group>"; };
+		D00C2F2619D2A2E4009C7218 /* Coldplay9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coldplay9.jpg; sourceTree = "<group>"; };
+		D00C2F3019D2A643009C7218 /* GigMediaCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigMediaCollectionViewController.swift; sourceTree = "<group>"; };
+		D00C2F3219D405DB009C7218 /* GigMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigMediaCell.swift; sourceTree = "<group>"; };
+		D00C2F3619D5523C009C7218 /* GigImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigImageViewController.swift; sourceTree = "<group>"; };
 		D03ED1EC19C42A960057B927 /* GigCarousel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GigCarousel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03ED1F019C42A960057B927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03ED1F119C42A960057B927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D03ED1F419C42A960057B927 /* GigCarousel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GigCarousel.xcdatamodel; sourceTree = "<group>"; };
 		D03ED1F919C42A960057B927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D03ED1FB19C42A960057B927 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D03ED1FE19C42A960057B927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D03ED20419C42A960057B927 /* GigCarouselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GigCarouselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03ED20919C42A960057B927 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03ED20A19C42A960057B927 /* GigCarouselTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigCarouselTests.swift; sourceTree = "<group>"; };
 		D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigTimelineViewController.swift; sourceTree = "<group>"; };
 		D03ED21819C57E390057B927 /* GigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigCell.swift; sourceTree = "<group>"; };
 		D03ED21B19C580070057B927 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
-		D03ED21F19C58A5C0057B927 /* 1Star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Star.png; sourceTree = "<group>"; };
-		D03ED22019C58A5C0057B927 /* 1Star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Star@2x.png"; sourceTree = "<group>"; };
-		D03ED22119C58A5C0057B927 /* 1StarSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1StarSmall.png; sourceTree = "<group>"; };
-		D03ED22219C58A5C0057B927 /* 1StarSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1StarSmall@2x.png"; sourceTree = "<group>"; };
-		D03ED22319C58A5C0057B927 /* 2Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2Stars.png; sourceTree = "<group>"; };
-		D03ED22419C58A5C0057B927 /* 2Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2Stars@2x.png"; sourceTree = "<group>"; };
-		D03ED22519C58A5C0057B927 /* 2StarsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2StarsSmall.png; sourceTree = "<group>"; };
-		D03ED22619C58A5C0057B927 /* 2StarsSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2StarsSmall@2x.png"; sourceTree = "<group>"; };
-		D03ED22719C58A5C0057B927 /* 3Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3Stars.png; sourceTree = "<group>"; };
-		D03ED22819C58A5C0057B927 /* 3Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3Stars@2x.png"; sourceTree = "<group>"; };
-		D03ED22919C58A5C0057B927 /* 3StarsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3StarsSmall.png; sourceTree = "<group>"; };
-		D03ED22A19C58A5C0057B927 /* 3StarsSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3StarsSmall@2x.png"; sourceTree = "<group>"; };
-		D03ED22B19C58A5C0057B927 /* 4Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4Stars.png; sourceTree = "<group>"; };
-		D03ED22C19C58A5C0057B927 /* 4Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4Stars@2x.png"; sourceTree = "<group>"; };
-		D03ED22D19C58A5C0057B927 /* 4StarsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4StarsSmall.png; sourceTree = "<group>"; };
-		D03ED22E19C58A5C0057B927 /* 4StarsSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4StarsSmall@2x.png"; sourceTree = "<group>"; };
-		D03ED22F19C58A5C0057B927 /* 5Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5Stars.png; sourceTree = "<group>"; };
-		D03ED23019C58A5C0057B927 /* 5Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5Stars@2x.png"; sourceTree = "<group>"; };
-		D03ED23119C58A5C0057B927 /* 5StarsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5StarsSmall.png; sourceTree = "<group>"; };
-		D03ED23219C58A5C0057B927 /* 5StarsSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5StarsSmall@2x.png"; sourceTree = "<group>"; };
-		D03ED23319C58A5C0057B927 /* Gestures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gestures.png; sourceTree = "<group>"; };
-		D03ED23419C58A5C0057B927 /* Gestures@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gestures@2x.png"; sourceTree = "<group>"; };
-		D03ED23519C58A5C0057B927 /* Players.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Players.png; sourceTree = "<group>"; };
-		D03ED23619C58A5C0057B927 /* Players@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Players@2x.png"; sourceTree = "<group>"; };
 		D03ED25119C8D8700057B927 /* AddEditGigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditGigViewController.swift; sourceTree = "<group>"; };
 		D0BD908319CB53FC0051E1AA /* GigTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GigTimeline.swift; sourceTree = "<group>"; };
 		D0D9674F19CD9EE2004E48AA /* Gig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gig.swift; sourceTree = "<group>"; };
@@ -136,6 +116,8 @@
 			children = (
 				D03ED25119C8D8700057B927 /* AddEditGigViewController.swift */,
 				D03ED21419C42B4A0057B927 /* GigTimelineViewController.swift */,
+				D00C2F3019D2A643009C7218 /* GigMediaCollectionViewController.swift */,
+				D00C2F3619D5523C009C7218 /* GigImageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -144,8 +126,19 @@
 			isa = PBXGroup;
 			children = (
 				D03ED21819C57E390057B927 /* GigCell.swift */,
+				D00C2F3219D405DB009C7218 /* GigMediaCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D00C2F1719D21E24009C7218 /* Songkick */ = {
+			isa = PBXGroup;
+			children = (
+				D00C2F1819D21E53009C7218 /* SongkickCommunicator.swift */,
+				D00C2F1A19D21E68009C7218 /* SongkickCoordinator.swift */,
+				D00C2F1C19D21E95009C7218 /* SongkickIngestor.swift */,
+			);
+			name = Songkick;
 			sourceTree = "<group>";
 		};
 		D03ED1E319C42A960057B927 = {
@@ -169,6 +162,7 @@
 		D03ED1EE19C42A960057B927 /* GigCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				D00C2F1719D21E24009C7218 /* Songkick */,
 				D00C2F1619D21A86009C7218 /* Views */,
 				D00C2F1519D21A4E009C7218 /* Controllers */,
 				D00C2F1419D21A13009C7218 /* Models */,
@@ -177,7 +171,6 @@
 				D03ED21B19C580070057B927 /* TemplateIcon2x.png */,
 				D03ED1FB19C42A960057B927 /* Images.xcassets */,
 				D03ED21E19C58A5C0057B927 /* Images */,
-				D03ED1FD19C42A960057B927 /* LaunchScreen.xib */,
 				D03ED1F319C42A960057B927 /* GigCarousel.xcdatamodeld */,
 				D03ED1EF19C42A960057B927 /* Supporting Files */,
 			);
@@ -212,30 +205,15 @@
 		D03ED21E19C58A5C0057B927 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D03ED21F19C58A5C0057B927 /* 1Star.png */,
-				D03ED22019C58A5C0057B927 /* 1Star@2x.png */,
-				D03ED22119C58A5C0057B927 /* 1StarSmall.png */,
-				D03ED22219C58A5C0057B927 /* 1StarSmall@2x.png */,
-				D03ED22319C58A5C0057B927 /* 2Stars.png */,
-				D03ED22419C58A5C0057B927 /* 2Stars@2x.png */,
-				D03ED22519C58A5C0057B927 /* 2StarsSmall.png */,
-				D03ED22619C58A5C0057B927 /* 2StarsSmall@2x.png */,
-				D03ED22719C58A5C0057B927 /* 3Stars.png */,
-				D03ED22819C58A5C0057B927 /* 3Stars@2x.png */,
-				D03ED22919C58A5C0057B927 /* 3StarsSmall.png */,
-				D03ED22A19C58A5C0057B927 /* 3StarsSmall@2x.png */,
-				D03ED22B19C58A5C0057B927 /* 4Stars.png */,
-				D03ED22C19C58A5C0057B927 /* 4Stars@2x.png */,
-				D03ED22D19C58A5C0057B927 /* 4StarsSmall.png */,
-				D03ED22E19C58A5C0057B927 /* 4StarsSmall@2x.png */,
-				D03ED22F19C58A5C0057B927 /* 5Stars.png */,
-				D03ED23019C58A5C0057B927 /* 5Stars@2x.png */,
-				D03ED23119C58A5C0057B927 /* 5StarsSmall.png */,
-				D03ED23219C58A5C0057B927 /* 5StarsSmall@2x.png */,
-				D03ED23319C58A5C0057B927 /* Gestures.png */,
-				D03ED23419C58A5C0057B927 /* Gestures@2x.png */,
-				D03ED23519C58A5C0057B927 /* Players.png */,
-				D03ED23619C58A5C0057B927 /* Players@2x.png */,
+				D00C2F1E19D2A2E4009C7218 /* Coldplay1.jpg */,
+				D00C2F1F19D2A2E4009C7218 /* Coldplay2.jpg */,
+				D00C2F2019D2A2E4009C7218 /* Coldplay3.jpg */,
+				D00C2F2119D2A2E4009C7218 /* Coldplay4.jpg */,
+				D00C2F2219D2A2E4009C7218 /* Coldplay5.jpg */,
+				D00C2F2319D2A2E4009C7218 /* Coldplay6.jpg */,
+				D00C2F2419D2A2E4009C7218 /* Coldplay7.jpg */,
+				D00C2F2519D2A2E4009C7218 /* Coldplay8.png */,
+				D00C2F2619D2A2E4009C7218 /* Coldplay9.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -320,34 +298,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D03ED24519C58A5C0057B927 /* 4StarsSmall.png in Resources */,
-				D03ED24319C58A5C0057B927 /* 4Stars.png in Resources */,
-				D03ED23B19C58A5C0057B927 /* 2Stars.png in Resources */,
-				D03ED23F19C58A5C0057B927 /* 3Stars.png in Resources */,
-				D03ED24219C58A5C0057B927 /* 3StarsSmall@2x.png in Resources */,
-				D03ED24919C58A5C0057B927 /* 5StarsSmall.png in Resources */,
+				D00C2F2A19D2A2E4009C7218 /* Coldplay4.jpg in Resources */,
 				D03ED21D19C580070057B927 /* TemplateIcon2x.png in Resources */,
-				D03ED23D19C58A5C0057B927 /* 2StarsSmall.png in Resources */,
+				D00C2F2C19D2A2E4009C7218 /* Coldplay6.jpg in Resources */,
+				D00C2F2D19D2A2E4009C7218 /* Coldplay7.jpg in Resources */,
+				D00C2F2E19D2A2E4009C7218 /* Coldplay8.png in Resources */,
+				D00C2F2F19D2A2E4009C7218 /* Coldplay9.jpg in Resources */,
 				D03ED1FA19C42A960057B927 /* Main.storyboard in Resources */,
-				D03ED23C19C58A5C0057B927 /* 2Stars@2x.png in Resources */,
-				D03ED24D19C58A5C0057B927 /* Players.png in Resources */,
-				D03ED24C19C58A5C0057B927 /* Gestures@2x.png in Resources */,
-				D03ED24719C58A5C0057B927 /* 5Stars.png in Resources */,
-				D03ED1FF19C42A960057B927 /* LaunchScreen.xib in Resources */,
-				D03ED24019C58A5C0057B927 /* 3Stars@2x.png in Resources */,
-				D03ED23A19C58A5C0057B927 /* 1StarSmall@2x.png in Resources */,
-				D03ED24A19C58A5C0057B927 /* 5StarsSmall@2x.png in Resources */,
-				D03ED24819C58A5C0057B927 /* 5Stars@2x.png in Resources */,
+				D00C2F2719D2A2E4009C7218 /* Coldplay1.jpg in Resources */,
+				D00C2F2819D2A2E4009C7218 /* Coldplay2.jpg in Resources */,
 				D03ED1FC19C42A960057B927 /* Images.xcassets in Resources */,
-				D03ED24E19C58A5C0057B927 /* Players@2x.png in Resources */,
-				D03ED24619C58A5C0057B927 /* 4StarsSmall@2x.png in Resources */,
-				D03ED24119C58A5C0057B927 /* 3StarsSmall.png in Resources */,
-				D03ED23919C58A5C0057B927 /* 1StarSmall.png in Resources */,
-				D03ED24B19C58A5C0057B927 /* Gestures.png in Resources */,
-				D03ED23819C58A5C0057B927 /* 1Star@2x.png in Resources */,
-				D03ED24419C58A5C0057B927 /* 4Stars@2x.png in Resources */,
-				D03ED23E19C58A5C0057B927 /* 2StarsSmall@2x.png in Resources */,
-				D03ED23719C58A5C0057B927 /* 1Star.png in Resources */,
+				D00C2F2B19D2A2E4009C7218 /* Coldplay5.jpg in Resources */,
+				D00C2F2919D2A2E4009C7218 /* Coldplay3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,13 +327,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00C2F1B19D21E68009C7218 /* SongkickCoordinator.swift in Sources */,
+				D00C2F1D19D21E95009C7218 /* SongkickIngestor.swift in Sources */,
+				D00C2F3119D2A643009C7218 /* GigMediaCollectionViewController.swift in Sources */,
 				D03ED21519C42B4A0057B927 /* GigTimelineViewController.swift in Sources */,
 				D03ED21919C57E390057B927 /* GigCell.swift in Sources */,
 				D03ED25219C8D8700057B927 /* AddEditGigViewController.swift in Sources */,
+				D00C2F3719D5523C009C7218 /* GigImageViewController.swift in Sources */,
 				D0D9675019CD9EE2004E48AA /* Gig.swift in Sources */,
 				D03ED1F219C42A960057B927 /* AppDelegate.swift in Sources */,
 				D03ED1F519C42A960057B927 /* GigCarousel.xcdatamodeld in Sources */,
 				D0D9675419CD9F2B004E48AA /* Performance.swift in Sources */,
+				D00C2F3319D405DB009C7218 /* GigMediaCell.swift in Sources */,
+				D00C2F1919D21E53009C7218 /* SongkickCommunicator.swift in Sources */,
 				D0D9675219CD9F2B004E48AA /* Artist.swift in Sources */,
 				D0BD908419CB53FC0051E1AA /* GigTimeline.swift in Sources */,
 			);
@@ -402,14 +370,6 @@
 				D03ED1F919C42A960057B927 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D03ED1FD19C42A960057B927 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D03ED1FE19C42A960057B927 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

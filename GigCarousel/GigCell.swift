@@ -12,6 +12,7 @@ class GigCell: UITableViewCell {
   
   @IBOutlet var artistNameLabel: UILabel!
   @IBOutlet var venueNameLabel: UILabel!
+  var gig: Gig!
   
   override func awakeFromNib() {
     super.awakeFromNib()

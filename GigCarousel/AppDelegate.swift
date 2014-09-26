@@ -16,11 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    //createSomeGigs()
+    createSomeGigs()
     
     let navigationController = window?.rootViewController as UINavigationController
     let gigTimelineViewController = navigationController.viewControllers[0] as GigTimelineViewController
     gigTimelineViewController.managedObjectContext = managedObjectContext!
+    
+    //SongkickCommunicator().fetchKnifeConcerts()
     
     return true
   }
