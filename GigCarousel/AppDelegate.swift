@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    createSomeGigs()
+    //createSomeGigs()
+    
+    let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+    println(docDir)
     
     let navigationController = window?.rootViewController as UINavigationController
     let gigTimelineViewController = navigationController.viewControllers[0] as GigTimelineViewController
@@ -37,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var performance = NSEntityDescription.insertNewObjectForEntityForName("Performance", inManagedObjectContext: context) as Performance
     performance.setValue("headline", forKey: "billing")
     var artist = NSEntityDescription.insertNewObjectForEntityForName("Artist", inManagedObjectContext: context) as Artist
-    artist.setValue("Mountain Goats", forKey: "name")
+    artist.setValue("Mountain Goats Plus loads and loads of special guests and their mate Bob too", forKey: "name")
     performance.setValue(artist, forKey: "artist")
     let performances = NSSet(object: performance)
     gig.setValue(performances, forKey: "performances")

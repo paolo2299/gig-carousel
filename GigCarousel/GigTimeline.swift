@@ -18,7 +18,7 @@ class GigTimeline {
   
   func gigsGroupedByMonth() -> [[Gig]] {
     if gigs.count == 0 {
-      return [[]]
+      return []
     }
     var result = [[Gig]]()
     var currentGig = gigs.first!

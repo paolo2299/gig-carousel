@@ -1,5 +1,5 @@
 //
-//  GigMediaViewController.swift
+//  GigMediaCollectionViewController.swift
 //  GigCarousel
 //
 //  Created by Paul Lawson on 24/09/2014.
@@ -10,7 +10,7 @@ import UIKit
 
 //let reuseIdentifier = "GigMediaCell"
 
-class GigMediaViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class GigMediaCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, GigImageViewControllerDelegate {
   
   var gig: Gig!
   var media: [UIImage]!
@@ -39,7 +39,10 @@ class GigMediaViewController: UICollectionViewController, UICollectionViewDelega
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
   // Get the new view controller using [segue destinationViewController].
   // Pass the selected object to the new view controller.
-    println("here")
+    let gigImageViewController = segue.destinationViewController as GigImageViewController
+    let collectionViewCell = sender as GigMediaCell
+    gigImageViewController.image = collectionViewCell.image
+    gigImageViewController.delegate = self
   }
   
   
@@ -112,5 +115,10 @@ class GigMediaViewController: UICollectionViewController, UICollectionViewDelega
 
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
     return UIEdgeInsetsMake(50, 20, 50, 20)
+  }
+  
+  // MARK: GigImageViewControllerDelegate
+  func gigImageViewControllerDidCancel(controller: GigImageViewController) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
 }

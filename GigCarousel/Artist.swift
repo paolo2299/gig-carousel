@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 class Artist: NSManagedObject {
-
-    @NSManaged var dataSource: String?
-    @NSManaged var name: String
-    @NSManaged var nativeId: NSNumber?
-    @NSManaged var performances: NSSet
-
+  
+  @NSManaged var dataSource: String
+  @NSManaged var name: String
+  @NSManaged var imageUrl: String?
+  @NSManaged var nativeId: NSNumber
+  @NSManaged var performances: NSSet
+  
 }

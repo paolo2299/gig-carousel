@@ -8,19 +8,24 @@
 
 import UIKit
 
+protocol GigImageViewControllerDelegate {
+  func gigImageViewControllerDidCancel(controller: GigImageViewController)
+}
+
 class GigImageViewController: UIViewController {
   
   @IBOutlet var imageView: UIImageView!
   var image: UIImage!
+  var delegate: GigImageViewControllerDelegate?
   
   @IBAction func done(sender: AnyObject) {
-    println("clicked done")
+    delegate?.gigImageViewControllerDidCancel(self)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    imageView.image = image
   }
   
   override func didReceiveMemoryWarning() {

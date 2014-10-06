@@ -8,16 +8,20 @@
 import UIKit
 import CoreData
 
-class GigTimelineViewController: UITableViewController, AddEditGigViewControllerDelegate {
+class GigTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddEditGigViewControllerDelegate {
   
   var gigTimeline: GigTimeline!
   var managedObjectContext: NSManagedObjectContext!
+  @IBOutlet var tableView: UITableView!
+  @IBOutlet var visualEffectView: UIVisualEffectView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 70.0
+    tableView.backgroundView = nil
+    tableView.backgroundColor = UIColor.clearColor()
     
     loadGigs()
   }
@@ -36,21 +40,26 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
     // Dispose of any resources that can be recreated.
   }
   
-  func imageForRating(rating: Int) -> UIImage! {
-    switch rating {
-    case 1:
-      return UIImage(named: "1StarSmall")
-    case 2:
-      return UIImage(named: "2StarsSmall")
-    case 3:
-      return UIImage(named: "3StarsSmall")
-    case 4:
-      return UIImage(named: "4StarsSmall")
-    case 5:
-      return UIImage(named: "5StarsSmall")
-    default:
-      return nil
-    }
+  @IBAction func add(sender: AnyObject){
+    let alertController = UIAlertController(title: "Add Gig", message: "", preferredStyle: .ActionSheet)
+    let syncSongkickAction = UIAlertAction(title: "Sync with Songkick", style: .Default, handler: {
+      action in
+      let alertMessage = UIAlertController(title: "Service unavailable", message: "Sorry, this feature is not available yet. Please retry later.", preferredStyle: .Alert)
+      alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      self.presentViewController(alertMessage, animated: true, completion: nil)
+    })
+    let searchSongkick = UIAlertAction(title: "Search Songkick", style: .Default, handler: {
+      action in
+      self.performSegueWithIdentifier("SearchSongkick", sender: nil)
+    })
+    let manualAddGigAction = UIAlertAction(title: "Enter gig details", style: .Default, handler: {
+      action in
+      self.performSegueWithIdentifier("AddEditGig", sender: nil)
+    })
+    alertController.addAction(searchSongkick)
+    alertController.addAction(manualAddGigAction)
+    alertController.addAction(syncSongkickAction)
+    presentViewController(alertController, animated: true, completion: nil)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,10 +67,10 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
       let navigationController = segue.destinationViewController as UINavigationController
       let addEditGigViewController = navigationController.viewControllers[0] as AddEditGigViewController
       addEditGigViewController.delegate = self
-    } else if (segue.identifier == "GigMedia") {
+    } else if (segue.identifier == "ShowGigMedia") {
       let gigCell = sender as GigCell
       let navigationController = segue.destinationViewController as UINavigationController
-      let gigMediaViewController = navigationController.viewControllers[0] as GigMediaViewController
+      let gigMediaViewController = navigationController.viewControllers[0] as GigMediaCollectionViewController
       gigMediaViewController.gig = gigCell.gig
       gigMediaViewController.media = gigCell.gig.getMedia()
     }
@@ -79,15 +88,15 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
   
   // MARK: - Table view data source
   
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return gigTimeline.gigsGroupedByMonth().count
   }
   
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return gigTimeline.gigsGroupedByMonth()[section].count
   }
   
-  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     let gigsInSection = gigTimeline.gigsGroupedByMonth()[section]
     let sampleGig = gigsInSection.first!
     let dateToDisplay = sampleGig.date
@@ -97,7 +106,7 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
     return dateFormatter.stringFromDate(sampleGig.date)
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("GigCell", forIndexPath: indexPath) as GigCell
     
     let gig = gigTimeline.gigsGroupedByMonth()[indexPath.section][indexPath.row];
@@ -107,7 +116,12 @@ class GigTimelineViewController: UITableViewController, AddEditGigViewController
     }
     cell.venueNameLabel.text = gig.venue;
     cell.gig = gig
+    cell.backgroundColor = UIColor.clearColor()
     
     return cell
+  }
+  
+  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    cell.backgroundColor = UIColor.clearColor()
   }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7FF90D17-1FD1-4833-A66F-823B761716FE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GigCarousel</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0E854B92E9C51C0EE50EE50774C228D04FA51C8B</key>
+		<string>github.com:paolo2299/gig-carousel.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GigCarousel.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0E854B92E9C51C0EE50EE50774C228D04FA51C8B</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:paolo2299/gig-carousel.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0E854B92E9C51C0EE50EE50774C228D04FA51C8B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E854B92E9C51C0EE50EE50774C228D04FA51C8B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GigCarousel</string>
+		</dict>
+	</array>
+</dict>
+</plist>
