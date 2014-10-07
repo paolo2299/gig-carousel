@@ -17,10 +17,10 @@ class Gig: NSManagedObject {
   @NSManaged var nativeId: NSNumber?
   @NSManaged var venue: String?
   @NSManaged var performances: NSSet
+  @NSManaged var name: String
   
   func year() -> Int {
-    return dateComponents().year
-  }
+    return dateComponents().year  }
   
   func month() -> Int {
     return dateComponents().month
@@ -34,12 +34,9 @@ class Gig: NSManagedObject {
     return calendar.components(units, fromDate: date)
   }
   
-  func getMedia() -> [UIImage] {
-    return [
-      UIImage(named: "Coldplay1.jpg"),
-      UIImage(named: "Coldplay2.jpg"),
-      UIImage(named: "Coldplay3.jpg"),
-      UIImage(named: "Coldplay4.jpg")
-    ]
+  //Bit dodgy - but only way I could find to get MagicalRecord to work with swift
+  class func MR_entityName() -> NSString {
+    return "Gig"
   }
+  
 }

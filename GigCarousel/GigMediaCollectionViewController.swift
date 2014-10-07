@@ -117,7 +117,7 @@ class GigMediaCollectionViewController: UICollectionViewController, UICollection
     return UIEdgeInsetsMake(50, 20, 50, 20)
   }
   
-  // MARK: GigImageViewControllerDelegate
+  // MARK: GigImageViewControllerDelegate methods
   func gigImageViewControllerDidCancel(controller: GigImageViewController) {
     dismissViewControllerAnimated(true, completion: nil)
   }

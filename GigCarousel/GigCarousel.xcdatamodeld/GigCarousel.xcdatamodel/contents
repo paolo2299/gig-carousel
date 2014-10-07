@@ -5,29 +5,29 @@
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="nativeId" attributeType="Integer 32" syncable="YES"/>
-        <relationship name="performances" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Performance" inverseName="artist" inverseEntity="Performance" syncable="YES"/>
+        <relationship name="performances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Performance" inverseName="artist" inverseEntity="Performance" syncable="YES"/>
     </entity>
     <entity name="Gig" representedClassName="GigCarousel.Gig" syncable="YES">
         <attribute name="dataSource" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="nativeId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="venue" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="media" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="GigMedia" inverseName="gig" inverseEntity="GigMedia" syncable="YES"/>
-        <relationship name="performances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Performance" inverseName="gig" inverseEntity="Performance" syncable="YES"/>
+        <relationship name="performances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Performance" inverseName="gigs" inverseEntity="Performance" syncable="YES"/>
     </entity>
-    <entity name="GigMedia" syncable="YES">
+    <entity name="GigMedia" representedClassName="GigCarousel.GigMedia" syncable="YES">
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gig" maxCount="1" deletionRule="Nullify" destinationEntity="Gig" inverseName="media" inverseEntity="Gig" syncable="YES"/>
     </entity>
     <entity name="Performance" representedClassName="GigCarousel.Performance" syncable="YES">
-        <attribute name="billing" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="artist" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="performances" inverseEntity="Artist" syncable="YES"/>
-        <relationship name="gig" maxCount="1" deletionRule="Nullify" destinationEntity="Gig" inverseName="performances" inverseEntity="Gig" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="performances" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="gigs" toMany="YES" deletionRule="Nullify" destinationEntity="Gig" inverseName="performances" inverseEntity="Gig" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Artist" positionX="-36" positionY="45" width="128" height="120"/>
-        <element name="Gig" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Artist" positionX="-36" positionY="45" width="128" height="118"/>
+        <element name="Gig" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="GigMedia" positionX="-54" positionY="63" width="128" height="73"/>
-        <element name="Performance" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Performance" positionX="-54" positionY="54" width="128" height="73"/>
     </elements>
 </model>

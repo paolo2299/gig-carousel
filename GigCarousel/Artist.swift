@@ -17,4 +17,9 @@ class Artist: NSManagedObject {
   @NSManaged var nativeId: NSNumber
   @NSManaged var performances: NSSet
   
+  //Bit dodgy - but only way I could find to get MagicalRecord to work with swift
+  class func MR_entityName() -> NSString {
+    return "Artist"
+  }
+  
 }

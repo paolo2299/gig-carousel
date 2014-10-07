@@ -8,10 +8,9 @@
 import UIKit
 import CoreData
 
-class GigTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddEditGigViewControllerDelegate {
+class GigTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddEditGigViewControllerDelegate, SongkickCoordinatorDelegate {
   
   var gigTimeline: GigTimeline!
-  var managedObjectContext: NSManagedObjectContext!
   @IBOutlet var tableView: UITableView!
   @IBOutlet var visualEffectView: UIVisualEffectView!
   
@@ -27,11 +26,7 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
   }
   
   func loadGigs() {
-    var fetchRequest = NSFetchRequest()
-    let entity = NSEntityDescription.entityForName("Gig", inManagedObjectContext: managedObjectContext)
-    fetchRequest.entity = entity
-    var error: NSError?
-    let gigs = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as [Gig]
+    let gigs = Gig.MR_findAll() as [Gig]
     gigTimeline = GigTimeline(gigs: gigs)
   }
   
@@ -44,9 +39,9 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     let alertController = UIAlertController(title: "Add Gig", message: "", preferredStyle: .ActionSheet)
     let syncSongkickAction = UIAlertAction(title: "Sync with Songkick", style: .Default, handler: {
       action in
-      let alertMessage = UIAlertController(title: "Service unavailable", message: "Sorry, this feature is not available yet. Please retry later.", preferredStyle: .Alert)
-      alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-      self.presentViewController(alertMessage, animated: true, completion: nil)
+      let skCoordinator = SongkickCoordinator()
+      skCoordinator.delegate = self
+      skCoordinator.fetchCalendarForUser("paul-lawson-3")
     })
     let searchSongkick = UIAlertAction(title: "Search Songkick", style: .Default, handler: {
       action in
@@ -72,7 +67,12 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
       let navigationController = segue.destinationViewController as UINavigationController
       let gigMediaViewController = navigationController.viewControllers[0] as GigMediaCollectionViewController
       gigMediaViewController.gig = gigCell.gig
-      gigMediaViewController.media = gigCell.gig.getMedia()
+      gigMediaViewController.media = [
+        UIImage(named: "Coldplay1.jpg"),
+        UIImage(named: "Coldplay2.jpg"),
+        UIImage(named: "Coldplay3.jpg"),
+        UIImage(named: "Coldplay4.jpg")
+      ]
     }
   }
   
@@ -112,7 +112,7 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     let gig = gigTimeline.gigsGroupedByMonth()[indexPath.section][indexPath.row];
     let optionalPerformance = gig.performances.allObjects.first? as Performance?
     if let performance = optionalPerformance? {
-      cell.artistNameLabel.text = performance.artist.name;
+      cell.artistNameLabel.text = gig.name;
     }
     cell.venueNameLabel.text = gig.venue;
     cell.gig = gig
@@ -123,5 +123,16 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
   
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     cell.backgroundColor = UIColor.clearColor()
+  }
+  
+  // MARK: - SongkickCoordinatorDelegate methods
+  
+  func SKCoordinatorDidIngestCalendarEvents() {
+    loadGigs()
+    tableView.reloadData()
+  }
+  
+  func SKCoordinatorDidFailToIngestCalendarEvents() {
+    println("didn't save anything")
   }
 }

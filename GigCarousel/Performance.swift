@@ -11,8 +11,12 @@ import CoreData
 
 class Performance: NSManagedObject {
 
-    @NSManaged var billing: String
     @NSManaged var artist: Artist
     @NSManaged var gig: Gig
+  
+    //Bit dodgy - but only way I could find to get MagicalRecord to work with swift
+    class func MR_entityName() -> NSString {
+      return "Performance"
+    }
 
 }

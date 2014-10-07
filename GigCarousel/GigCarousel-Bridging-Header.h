@@ -11,4 +11,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+//#define MR_SHORTHAND
+#import "CoreData+MagicalRecord.h"
+
 #endif

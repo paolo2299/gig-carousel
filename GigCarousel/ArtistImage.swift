@@ -12,9 +12,9 @@ class ArtistImage {
   
   class func imageFor(artist: Artist) -> UIImage {
     let path = imagePathFor(artist)
-    //Fetch file?
-    //Convert to UIImage?
-    return UIImage()
+    let image = UIImage(contentsOfFile: path)
+    
+    return image
   }
   
   class func saveImageFor(artist: Artist, image: UIImage) -> String? {
@@ -30,10 +30,11 @@ class ArtistImage {
   }
   
   class func imagePathFor(artist: Artist) -> NSString {
+    //TODO - create a subdirectory to store these?
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true);
     let documentsDirectory = paths[0] as String;
     
-    let identifier = "artist:\(artist.dataSource):\(artist.nativeId)"
+    let identifier = "\(artist.dataSource):artist:\(artist.nativeId):image"
     let imagePath = documentsDirectory.stringByAppendingPathComponent(identifier)
     return imagePath
   }

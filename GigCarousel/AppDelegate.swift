@@ -16,14 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    //createSomeGigs()
     
-    let docDir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-    println(docDir)
+    MagicalRecord.setupCoreDataStack()
+    //createSomeGigs()
     
     let navigationController = window?.rootViewController as UINavigationController
     let gigTimelineViewController = navigationController.viewControllers[0] as GigTimelineViewController
-    gigTimelineViewController.managedObjectContext = managedObjectContext!
     
     //SongkickCommunicator().fetchKnifeConcerts()
     
@@ -31,23 +29,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func createSomeGigs() {
-    var date = NSDate()
-    var gigDate = NSDate.dateWithTimeIntervalSinceReferenceDate(3600*24*365)
-    let context = managedObjectContext!;
-    var gig = NSEntityDescription.insertNewObjectForEntityForName("Gig", inManagedObjectContext: context) as Gig
-    gig.setValue("Union Chapel", forKey: "venue")
-    gig.setValue(gigDate, forKey: "date")
-    var performance = NSEntityDescription.insertNewObjectForEntityForName("Performance", inManagedObjectContext: context) as Performance
-    performance.setValue("headline", forKey: "billing")
-    var artist = NSEntityDescription.insertNewObjectForEntityForName("Artist", inManagedObjectContext: context) as Artist
-    artist.setValue("Mountain Goats Plus loads and loads of special guests and their mate Bob too", forKey: "name")
-    performance.setValue(artist, forKey: "artist")
+    
+    let gigs = Gig.MR_findAll() as [Gig]
+    
+    let artist = Artist.MR_createEntity() as Artist
+    artist.name = "Jeff and the Magical Records"
+    artist.dataSource = "user"
+    artist.nativeId = 2
+    
+    let performance = Performance.MR_createEntity() as Performance
+    performance.artist = artist
+    
+    let gig = Gig.MR_createEntity() as Gig
+    gig.venue = "Union Chapel"
+    gig.date = NSDate.dateWithTimeIntervalSinceReferenceDate(3600*24*365)
     let performances = NSSet(object: performance)
-    gig.setValue(performances, forKey: "performances")
-    var error: NSError?
-    if !context.save(&error) {
-      println("Whoops, couldn't save: \(error?.localizedDescription)")
-    }
+    gig.performances = performances
+    gig.name = "test"
+
+    let context = NSManagedObjectContext.MR_defaultContext()
+    context.MR_saveToPersistentStoreWithCompletion({success, error in
+      if success {
+        println("You successfully saved your context.")
+      } else if (error != nil) {
+        println("Error saving context: \(error.description)")
+      }
+    })
+    
+    let gigs2 = Gig.MR_findAll() as [Gig]
+    println(gigs2)
   }
   
   func applicationWillResignActive(application: UIApplication) {
