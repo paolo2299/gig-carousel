@@ -1,0 +1,13 @@
+get focus BOOL working
+fetch focus artist images
+save media to DB and photos
+styling
+
+nice to haves
+fetch images for events where no focus artist is available
+store SK username in user defaults and ask for it if it isn't there
+manual adding of events
+SK search for events
+delete/edit events
+attach other media than photos?
+search for media? Google images? flickr? instagram?

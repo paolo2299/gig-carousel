@@ -11,6 +11,7 @@ import CoreData
 class GigTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddEditGigViewControllerDelegate, SongkickCoordinatorDelegate {
   
   var gigTimeline: GigTimeline!
+  var songkickCoordinator: SongkickCoordinator!
   @IBOutlet var tableView: UITableView!
   @IBOutlet var visualEffectView: UIVisualEffectView!
   
@@ -21,6 +22,9 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     tableView.estimatedRowHeight = 70.0
     tableView.backgroundView = nil
     tableView.backgroundColor = UIColor.clearColor()
+    
+    songkickCoordinator = SongkickCoordinator()
+    songkickCoordinator.delegate = self
     
     loadGigs()
   }
@@ -39,9 +43,7 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     let alertController = UIAlertController(title: "Add Gig", message: "", preferredStyle: .ActionSheet)
     let syncSongkickAction = UIAlertAction(title: "Sync with Songkick", style: .Default, handler: {
       action in
-      let skCoordinator = SongkickCoordinator()
-      skCoordinator.delegate = self
-      skCoordinator.fetchCalendarForUser("paul-lawson-3")
+      self.songkickCoordinator.fetchCalendarForUser("paul-lawson-3")
     })
     let searchSongkick = UIAlertAction(title: "Search Songkick", style: .Default, handler: {
       action in
@@ -111,10 +113,27 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     
     let gig = gigTimeline.gigsGroupedByMonth()[indexPath.section][indexPath.row];
     let optionalPerformance = gig.performances.allObjects.first? as Performance?
+    cell.imageView!.image = nil
     if let performance = optionalPerformance? {
-      cell.artistNameLabel.text = gig.name;
+      let artist = performance.artist
+      cell.artistNameLabel.text = artist.name
+      cell.venueNameLabel.text = gig.venue
+      if artist.dataSource == "songkick" {
+        //fetch the image
+        //TODO fetch and/or save useing document cache
+        let url = NSURL(string: "http://www1.sk-static.com/images/media/profile_images/artists/\(artist.nativeId)/large_avatar")
+        let request = NSURLRequest(URL: url)
+        weak var weakCell = cell
+        cell.imageView!.setImageWithURLRequest(request, placeholderImage: nil, success: {
+          request, response, image in
+          weakCell?.imageView?.image = image
+          weakCell?.setNeedsLayout()
+        }, failure: nil)
+      }
+    } else {
+      cell.artistNameLabel.text = gig.name
+      cell.venueNameLabel.text = ""
     }
-    cell.venueNameLabel.text = gig.venue;
     cell.gig = gig
     cell.backgroundColor = UIColor.clearColor()
     

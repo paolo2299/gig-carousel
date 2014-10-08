@@ -10,6 +10,7 @@
 #define GigCarousel_GigCarousel_Bridging_Header_h
 
 #import <AFNetworking/AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
 
 //#define MR_SHORTHAND
 #import "CoreData+MagicalRecord.h"
