@@ -11,6 +11,9 @@ import Foundation
 protocol SongkickIngestorDelegate {
   func ingesterDidIngestCalendarEvents()
   func ingesterDidFailToIngestCalendarEvents()
+  
+  func ingesterDidIngestGigographyEvents()
+  func ingesterDidFailToIngestGigographyEvents()
 }
 
 class SongkickIngestor {
@@ -30,6 +33,21 @@ class SongkickIngestor {
         self.delegate?.ingesterDidIngestCalendarEvents()
       } else {
         self.delegate?.ingesterDidFailToIngestCalendarEvents()
+      }
+    })
+  }
+  
+  func ingestGigographyFromResponseData(data: NSDictionary) {
+    let eventsData = getEntitiesFromData("event", data: data)
+    for eventData in eventsData {
+      ingestEvent(eventData)
+    }
+    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreWithCompletion({
+      success, error in
+      if success {
+        self.delegate?.ingesterDidIngestGigographyEvents()
+      } else {
+        self.delegate?.ingesterDidFailToIngestGigographyEvents()
       }
     })
   }
@@ -95,10 +113,18 @@ class SongkickIngestor {
   
   func eventDate(eventData: NSDictionary) -> NSDate? {
     let dateStart = eventData["start"] as NSDictionary
-    let dateString = dateStart["datetime"] as String
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
-    return dateFormatter.dateFromString(dateString)
+    if let dateTimeString = dateStart["datetime"] as? String {
+      let dateTimeFormatter = NSDateFormatter()
+      dateTimeFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
+      return dateTimeFormatter.dateFromString(dateTimeString)
+    } else {
+      if let dateString = dateStart["date"] as? String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.dateFromString(dateString)
+      }
+    }
+    return nil
   }
   
   func findOrCreateGig(nativeId: Int) -> Gig {

@@ -11,6 +11,9 @@ import Foundation
 protocol SongkickCommunicatorDelegate {
   func SKCommunicatorReceivedCalendarData(data: NSDictionary)
   func SKCommunicatorFetchingCalendarDataFailedWithError(NSError)
+  
+  func SKCommunicatorReceivedGigographyData(data: NSDictionary)
+  func SKCommunicatorFetchingGigographyDataFailedWithError(NSError)
 }
 
 class SongkickCommunicator {
@@ -43,6 +46,32 @@ class SongkickCommunicator {
         operation, error in
         println(error.localizedDescription)
         self.delegate!.SKCommunicatorFetchingCalendarDataFailedWithError(error)
+    })
+    
+    operation.start()
+  }
+  
+  func fetchGigographyJSON(userName: String) {
+    //let urlAsString = "\(baseURL)/"
+    let urlAsString = "\(baseURL)/users/\(userName)/gigography.json?apikey=\(APIKey)"
+    let url = NSURL(string: urlAsString)
+    println("Gigography URL: \(url)")
+    
+    let request = NSURLRequest(URL: url)
+    
+    let operation = AFHTTPRequestOperation(request: request)
+    operation.responseSerializer = AFJSONResponseSerializer()
+    
+    
+    operation.setCompletionBlockWithSuccess({
+      operation, responseObject in
+      let responseData = responseObject as NSDictionary
+      self.delegate!.SKCommunicatorReceivedGigographyData(responseData)
+      },
+      failure: {
+        operation, error in
+        println(error.localizedDescription)
+        self.delegate!.SKCommunicatorFetchingGigographyDataFailedWithError(error)
     })
     
     operation.start()

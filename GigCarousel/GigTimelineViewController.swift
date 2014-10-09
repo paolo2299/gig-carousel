@@ -44,6 +44,7 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
     let syncSongkickAction = UIAlertAction(title: "Sync with Songkick", style: .Default, handler: {
       action in
       self.songkickCoordinator.fetchCalendarForUser("paul-lawson-3")
+      self.songkickCoordinator.fetchGigographyForUser("paul-lawson-3")
     })
     let searchSongkick = UIAlertAction(title: "Search Songkick", style: .Default, handler: {
       action in
@@ -118,14 +119,21 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
       let artist = performance.artist
       cell.artistNameLabel.text = artist.name
       cell.venueNameLabel.text = gig.venue
-      if artist.dataSource == "songkick" {
-        //fetch the image
-        //TODO fetch and/or save useing document cache
+      //TODO - refactor image caching/fetching away from here?
+      //TODO - fetch image in background thread?
+      let optionalImage = ArtistImage.imageFor(artist)
+      if let image = optionalImage {
+        cell.imageView!.image = image
+        cell.setNeedsLayout()
+      } else if artist.dataSource == "songkick" {
+        //fetch the image from Songkick
         let url = NSURL(string: "http://www1.sk-static.com/images/media/profile_images/artists/\(artist.nativeId)/large_avatar")
         let request = NSURLRequest(URL: url)
         weak var weakCell = cell
         cell.imageView!.setImageWithURLRequest(request, placeholderImage: nil, success: {
           request, response, image in
+          //TODO - save image in background thread?
+          ArtistImage.saveImageFor(artist, image: image)
           weakCell?.imageView?.image = image
           weakCell?.setNeedsLayout()
         }, failure: nil)
@@ -147,11 +155,22 @@ class GigTimelineViewController: UIViewController, UITableViewDataSource, UITabl
   // MARK: - SongkickCoordinatorDelegate methods
   
   func SKCoordinatorDidIngestCalendarEvents() {
+    println("synced calendar")
     loadGigs()
     tableView.reloadData()
   }
   
   func SKCoordinatorDidFailToIngestCalendarEvents() {
-    println("didn't save anything")
+    println("failed to sync calendar")
+  }
+  
+  func SKCoordinatorDidIngestGigographyEvents() {
+    println("synced gigography")
+    loadGigs()
+    tableView.reloadData()
+  }
+  
+  func SKCoordinatorDidFailToIngestGigographyEvents() {
+    println("failed to sync gigography")
   }
 }

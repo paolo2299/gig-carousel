@@ -11,6 +11,9 @@ import Foundation
 protocol SongkickCoordinatorDelegate {
   func SKCoordinatorDidIngestCalendarEvents()
   func SKCoordinatorDidFailToIngestCalendarEvents()
+  
+  func SKCoordinatorDidIngestGigographyEvents()
+  func SKCoordinatorDidFailToIngestGigographyEvents()
 }
 
 class SongkickCoordinator: SongkickCommunicatorDelegate, SongkickIngestorDelegate {
@@ -30,6 +33,10 @@ class SongkickCoordinator: SongkickCommunicatorDelegate, SongkickIngestorDelegat
     communicator.fetchCalendarJSON(userName)
   }
   
+  func fetchGigographyForUser(userName: String) {
+    communicator.fetchGigographyJSON(userName)
+  }
+  
   // MARK: SongkickCommunicatorDelegate methods
   
   func SKCommunicatorReceivedCalendarData(data: NSDictionary) {
@@ -40,6 +47,14 @@ class SongkickCoordinator: SongkickCommunicatorDelegate, SongkickIngestorDelegat
     delegate?.SKCoordinatorDidFailToIngestCalendarEvents()
   }
   
+  func SKCommunicatorReceivedGigographyData(data: NSDictionary) {
+    ingester.ingestGigographyFromResponseData(data)
+  }
+  
+  func SKCommunicatorFetchingGigographyDataFailedWithError(NSError) {
+    delegate?.SKCoordinatorDidFailToIngestGigographyEvents()
+  }
+  
   // MARK: SongkickIngestorDelegate methods
   
   func ingesterDidIngestCalendarEvents() {
@@ -48,5 +63,13 @@ class SongkickCoordinator: SongkickCommunicatorDelegate, SongkickIngestorDelegat
   
   func ingesterDidFailToIngestCalendarEvents() {
     delegate?.SKCoordinatorDidFailToIngestCalendarEvents()
+  }
+  
+  func ingesterDidIngestGigographyEvents() {
+    delegate?.SKCoordinatorDidIngestGigographyEvents()
+  }
+  
+  func ingesterDidFailToIngestGigographyEvents() {
+    delegate?.SKCoordinatorDidFailToIngestGigographyEvents()
   }
 }

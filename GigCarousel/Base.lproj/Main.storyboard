@@ -59,7 +59,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coldplay2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-Uk-2MG">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-Uk-2MG">
                                                     <rect key="frame" x="20" y="17" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="1EX-yR-MN2"/>
@@ -303,7 +303,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Coldplay2.jpg" width="454" height="302"/>
         <image name="Coldplay4.jpg" width="332" height="500"/>
     </resources>
 </document>

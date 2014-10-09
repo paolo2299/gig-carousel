@@ -10,10 +10,10 @@ import Foundation
 
 class ArtistImage {
   
-  class func imageFor(artist: Artist) -> UIImage {
+  class func imageFor(artist: Artist) -> UIImage? {
     let path = imagePathFor(artist)
     let image = UIImage(contentsOfFile: path)
-    
+
     return image
   }
   
