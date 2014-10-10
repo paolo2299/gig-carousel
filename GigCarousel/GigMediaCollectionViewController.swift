@@ -17,14 +17,6 @@ class GigMediaCollectionViewController: UICollectionViewController, UICollection
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Register cell classes
-    //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-    
-    // Do any additional setup after loading the view.
   }
   
   override func didReceiveMemoryWarning() {
@@ -68,42 +60,6 @@ class GigMediaCollectionViewController: UICollectionViewController, UICollection
     
     return cell
   }
-  
-  // MARK: UICollectionViewDelegate
-  
-  //override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-  //  var gigImage = media[indexPath.row]
-  //  performSegueWithIdentifier("ShowGigImage", sender: gigImage)
- // }
-  
-  /*
-  // Uncomment this method to specify if the specified item should be highlighted during tracking
-  func collectionView(collectionView: UICollectionView!, shouldHighlightItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-  return true
-  }
-  */
-  
-  /*
-  // Uncomment this method to specify if the specified item should be selected
-  func collectionView(collectionView: UICollectionView!, shouldSelectItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-  return true
-  }
-  */
-  
-  /*
-  // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-  func collectionView(collectionView: UICollectionView!, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath!) -> Bool {
-  return false
-  }
-  
-  func collectionView(collectionView: UICollectionView!, canPerformAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) -> Bool {
-  return false
-  }
-  
-  func collectionView(collectionView: UICollectionView!, performAction action: String!, forItemAtIndexPath indexPath: NSIndexPath!, withSender sender: AnyObject!) {
-  
-  }
-  */
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     let image = media[indexPath.row]
